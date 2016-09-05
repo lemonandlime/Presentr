@@ -55,32 +55,24 @@ public enum AlertActionStyle{
     func color() -> UIColor{
         switch self {
         case .default:
-            return ColorPalette.greenColor
+            return PresentrConfiguration.defaultButtonColor
         case .cancel:
-            return ColorPalette.grayColor
+            return PresentrConfiguration.cancelButtonColor
         case .destructive:
-            return ColorPalette.redColor
+            return PresentrConfiguration.destructiveButtonColor
         }
     }
     
-}
-
-private enum Font: String {
-    
-    case Montserrat = "Montserrat-Regular"
-    case SourceSansPro = "SourceSansPro-Regular"
-    
-    func font(_ size: CGFloat = 15.0) -> UIFont{
-        return UIFont.systemFont(ofSize: size)
+    func textColor() -> UIColor{
+        switch self {
+        case .default:
+            return PresentrConfiguration.defaultButtonTextColor
+        case .cancel:
+            return PresentrConfiguration.cancelButtonTextColor
+        case .destructive:
+            return PresentrConfiguration.defaultButtonTextColor
+        }
     }
-    
-}
-
-private struct ColorPalette {
-    
-    static let grayColor = UIColor(red: 151.0/255.0, green: 151.0/255.0, blue: 151.0/255.0, alpha: 1)
-    static let greenColor = UIColor(red: 58.0/255.0, green: 213.0/255.0, blue: 91.0/255.0, alpha: 1)
-    static let redColor = UIColor(red: 255.0/255.0, green: 103.0/255.0, blue: 100.0/255.0, alpha: 1)
     
 }
 
@@ -109,13 +101,13 @@ open class AlertViewController: UIViewController {
         super.viewDidLoad()
         
         if actions.isEmpty{
-            let okAction = AlertAction(title: "ok 🕶", style: .default, handler: nil)
+            let okAction = AlertAction(title: "OK", style: .default, handler: nil)
             addAction(okAction)
         }
         
         //loadFonts()
         
-        setupFonts()
+        //setupFonts()
         setupLabels()
         setupButtons()
     }
@@ -155,13 +147,6 @@ open class AlertViewController: UIViewController {
     
     // MARK: Setup
     
-    fileprivate func setupFonts(){
-        titleLabel.font = Font.Montserrat.font()
-        bodyLabel.font = Font.SourceSansPro.font()
-        firstButton.titleLabel?.font = Font.Montserrat.font(11.0)
-        secondButton.titleLabel?.font = Font.Montserrat.font(11.0)
-    }
-    
     fileprivate func setupLabels(){
         titleLabel.text = titleText ?? "Alert"
         bodyLabel.text = bodyText ?? "This is an alert."
@@ -182,7 +167,7 @@ open class AlertViewController: UIViewController {
         let title = action.title.uppercased()
         let style = action.style
         toButton.setTitle(title, for: UIControlState())
-        toButton.setTitleColor(style.color(), for: UIControlState())
+        toButton.backgroundColor = style.color()
     }
     
     // MARK: IBAction's
@@ -212,37 +197,3 @@ open class AlertViewController: UIViewController {
     
 }
 
-//// MARK: - Font Loading
-//
-//extension AlertViewController {
-//    
-//    struct PresentrStatic{
-//        static var onceToken: Int = 0
-//    }
-//    
-//    fileprivate let loadFonts: () = {
-//            self.loadFont(Font.Montserrat.rawValue)
-//            self.loadFont(Font.SourceSansPro.rawValue)
-//    }
-//    
-//    fileprivate func loadFont(_ name: String) -> Bool{
-//        let bundle = Bundle(for: type(of: self))
-//        guard let fontPath = bundle.path(forResource: name, ofType: "ttf") else {
-//            return false
-//        }
-//        let data = try? Data(contentsOf: URL(fileURLWithPath: fontPath))
-//        var error: Unmanaged<CFError>?
-//        let provider = CGDataProvider(data: data as! CFData)
-//        if let font = CGFont(provider!) {
-//            let success = CTFontManagerRegisterGraphicsFont(font, &error)
-//            if !success {
-//                print("Error loading font. Font is possibly already registered.")
-//                return false
-//            }
-//        }else{
-//            return false
-//        }
-//        return true
-//    }
-//    
-//}

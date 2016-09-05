@@ -259,7 +259,7 @@ open class Presentr: NSObject {
      */
     open static func alertViewController(title: String = PresentrConstants.Strings.alertTitle, body: String = PresentrConstants.Strings.alertBody) -> AlertViewController {
         let bundle = Bundle(for: self)
-        let alertController = AlertViewController(nibName: "Alert", bundle: bundle)
+        let alertController = UIStoryboard(name: "Alert", bundle: bundle).instantiateInitialViewController() as! AlertViewController
         alertController.titleText = title
         alertController.bodyText = body
         return alertController

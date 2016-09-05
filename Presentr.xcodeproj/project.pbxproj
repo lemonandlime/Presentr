@@ -15,10 +15,12 @@
 		0680CC3F1CE3EFA900CBAE4F /* PresentrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0680CC3E1CE3EFA900CBAE4F /* PresentrTests.swift */; };
 		0680CC4D1CE3EFC500CBAE4F /* Presentr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0680CC491CE3EFC500CBAE4F /* Presentr.swift */; };
 		0680CC4F1CE3EFC500CBAE4F /* PresentrController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0680CC4B1CE3EFC500CBAE4F /* PresentrController.swift */; };
-		0680CC531CE3EFFA00CBAE4F /* Alert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0680CC511CE3EFFA00CBAE4F /* Alert.xib */; };
 		0680CC541CE3EFFA00CBAE4F /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0680CC521CE3EFFA00CBAE4F /* AlertViewController.swift */; };
 		06BE3E4C1CED58DB0052424E /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06BE3E4B1CED58DB0052424E /* SourceSansPro-Regular.ttf */; };
 		06BE3E4E1CED58EA0052424E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06BE3E4D1CED58EA0052424E /* Montserrat-Regular.ttf */; };
+		0F2375781D7D751C00A2D9AB /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2375771D7D751C00A2D9AB /* GradientView.swift */; };
+		0F23757A1D7D789300A2D9AB /* PresentrConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2375791D7D789300A2D9AB /* PresentrConfiguration.swift */; };
+		0FDA9C9C1D7D87B0004ACD8E /* Alert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FDA9C9B1D7D87B0004ACD8E /* Alert.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,11 +52,13 @@
 		0680CC401CE3EFA900CBAE4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0680CC491CE3EFC500CBAE4F /* Presentr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentr.swift; sourceTree = "<group>"; };
 		0680CC4B1CE3EFC500CBAE4F /* PresentrController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentrController.swift; sourceTree = "<group>"; };
-		0680CC511CE3EFFA00CBAE4F /* Alert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Alert.xib; sourceTree = "<group>"; };
 		0680CC521CE3EFFA00CBAE4F /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		06BE3E4B1CED58DB0052424E /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
 		06BE3E4D1CED58EA0052424E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		0F23756E1D7D6D1B00A2D9AB /* PresentrexampleSwift3.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PresentrexampleSwift3.xcodeproj; path = PresentrexampleSwift3/PresentrexampleSwift3.xcodeproj; sourceTree = "<group>"; };
+		0F2375771D7D751C00A2D9AB /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		0F2375791D7D789300A2D9AB /* PresentrConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentrConfiguration.swift; sourceTree = "<group>"; };
+		0FDA9C9B1D7D87B0004ACD8E /* Alert.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Alert.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,7 @@
 				06686CB41CE96DCE00F88216 /* Animation */,
 				06D8AE8E1CE40BF300E00A6C /* Alert */,
 				06A1F0C51CF3D1C70057C79B /* Assets */,
+				0F2375791D7D789300A2D9AB /* PresentrConfiguration.swift */,
 			);
 			path = Presentr;
 			sourceTree = "<group>";
@@ -140,8 +145,9 @@
 		06D8AE8E1CE40BF300E00A6C /* Alert */ = {
 			isa = PBXGroup;
 			children = (
-				0680CC511CE3EFFA00CBAE4F /* Alert.xib */,
 				0680CC521CE3EFFA00CBAE4F /* AlertViewController.swift */,
+				0F2375771D7D751C00A2D9AB /* GradientView.swift */,
+				0FDA9C9B1D7D87B0004ACD8E /* Alert.storyboard */,
 			);
 			name = Alert;
 			sourceTree = "<group>";
@@ -263,8 +269,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				06BE3E4E1CED58EA0052424E /* Montserrat-Regular.ttf in Resources */,
-				0680CC531CE3EFFA00CBAE4F /* Alert.xib in Resources */,
 				06BE3E4C1CED58DB0052424E /* SourceSansPro-Regular.ttf in Resources */,
+				0FDA9C9C1D7D87B0004ACD8E /* Alert.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,9 +289,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				06686C761CE8250200F88216 /* CoverVerticalFromTopAnimation.swift in Sources */,
+				0F23757A1D7D789300A2D9AB /* PresentrConfiguration.swift in Sources */,
 				06686C9D1CE947E200F88216 /* CoverHorizontalAnimation.swift in Sources */,
 				0680CC4D1CE3EFC500CBAE4F /* Presentr.swift in Sources */,
 				0680CC541CE3EFFA00CBAE4F /* AlertViewController.swift in Sources */,
+				0F2375781D7D751C00A2D9AB /* GradientView.swift in Sources */,
 				0680CC4F1CE3EFC500CBAE4F /* PresentrController.swift in Sources */,
 				06686C741CE8248D00F88216 /* PresentrAnimation.swift in Sources */,
 			);

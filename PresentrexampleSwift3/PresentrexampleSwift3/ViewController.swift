@@ -18,11 +18,11 @@ class ViewController: UIViewController {
     }()
     
     var alertController: AlertViewController = {
-        let alertController = Presentr.alertViewController(title: "Are you sure? ⚠️", body: "This action can't be undone!")
-        let cancelAction = AlertAction(title: "NO, SORRY! 😱", style: .cancel) { alert in
+        let alertController = Presentr.alertViewController(title: "Message to driver", body: "This action can't be undone!")
+        let cancelAction = AlertAction(title: "CANCEL", style: .cancel) { alert in
             print("CANCEL!!")
         }
-        let okAction = AlertAction(title: "DO IT! 🤘", style: .destructive) { alert in
+        let okAction = AlertAction(title: "SAVE", style: .default) { alert in
             print("OK!!")
         }
         alertController.addAction(cancelAction)
