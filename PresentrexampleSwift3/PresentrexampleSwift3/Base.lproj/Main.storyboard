@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PresentrexampleSwift3" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kfx-PA-Urb">
+                                <state key="normal" title="Alert w/Default Animation"/>
+                                <connections>
+                                    <action selector="alertDefault:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZYd-Qf-4oQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zl6-eD-AQH">
+                                <state key="normal" title="Alert w/Custom Animation"/>
+                                <connections>
+                                    <action selector="alertCustom:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uuw-id-gcN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPx-Fk-2Xz">
+                                <state key="normal" title="Popup w/Default Animation"/>
+                                <connections>
+                                    <action selector="popupDefault:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vHo-IA-qqv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I83-dP-BeU">
+                                <state key="normal" title="Popup w/Custom Animation"/>
+                                <connections>
+                                    <action selector="popupCustom:" destination="BYZ-38-t0r" eventType="touchUpInside" id="54L-06-cGd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXJ-As-1OX">
+                                <state key="normal" title="TopHalf w/Default Animation"/>
+                                <connections>
+                                    <action selector="topHalfDefault:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4fI-RS-cs5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYC-gA-btm">
+                                <state key="normal" title="TopHalf w/Custom Animation"/>
+                                <connections>
+                                    <action selector="topHalfCustom:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l2T-qn-gbg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8a1-7h-Yv5">
+                                <state key="normal" title="BottomHalf w/Custom Animation"/>
+                                <connections>
+                                    <action selector="bottomHalfCustom:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MhQ-3U-YqL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0G-gO-u7e">
+                                <state key="normal" title="BottomHalf w/Default Animation"/>
+                                <connections>
+                                    <action selector="bottomHalfDefault:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b4S-aC-udz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="EYC-gA-btm" firstAttribute="centerX" secondItem="d0G-gO-u7e" secondAttribute="centerX" id="9Y4-ax-3wW"/>
+                            <constraint firstItem="d0G-gO-u7e" firstAttribute="centerX" secondItem="8a1-7h-Yv5" secondAttribute="centerX" id="G0A-Jf-wD5"/>
+                            <constraint firstItem="I83-dP-BeU" firstAttribute="top" secondItem="yPx-Fk-2Xz" secondAttribute="bottom" id="G0r-jc-Sg5"/>
+                            <constraint firstItem="yPx-Fk-2Xz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KgN-kN-RRF"/>
+                            <constraint firstItem="yPx-Fk-2Xz" firstAttribute="centerX" secondItem="I83-dP-BeU" secondAttribute="centerX" id="MjJ-7P-OHI"/>
+                            <constraint firstItem="Kfx-PA-Urb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="62" id="PIf-Pg-flI"/>
+                            <constraint firstItem="Kfx-PA-Urb" firstAttribute="centerX" secondItem="zl6-eD-AQH" secondAttribute="centerX" id="VMt-Ik-y0R"/>
+                            <constraint firstItem="8a1-7h-Yv5" firstAttribute="top" secondItem="d0G-gO-u7e" secondAttribute="bottom" id="bn9-0F-oQv"/>
+                            <constraint firstItem="zl6-eD-AQH" firstAttribute="top" secondItem="Kfx-PA-Urb" secondAttribute="bottom" id="ePH-iS-YHQ"/>
+                            <constraint firstItem="EYC-gA-btm" firstAttribute="top" secondItem="RXJ-As-1OX" secondAttribute="bottom" id="ecd-sB-xfj"/>
+                            <constraint firstItem="yPx-Fk-2Xz" firstAttribute="top" secondItem="zl6-eD-AQH" secondAttribute="bottom" constant="20" id="gHL-Ee-DGz"/>
+                            <constraint firstItem="I83-dP-BeU" firstAttribute="centerX" secondItem="RXJ-As-1OX" secondAttribute="centerX" id="iZT-3f-Gn2"/>
+                            <constraint firstItem="zl6-eD-AQH" firstAttribute="centerX" secondItem="yPx-Fk-2Xz" secondAttribute="centerX" id="kmU-Lb-2FE"/>
+                            <constraint firstItem="d0G-gO-u7e" firstAttribute="top" secondItem="EYC-gA-btm" secondAttribute="bottom" constant="20" id="mb1-XJ-CiX"/>
+                            <constraint firstItem="RXJ-As-1OX" firstAttribute="centerX" secondItem="EYC-gA-btm" secondAttribute="centerX" id="qwU-34-Kea"/>
+                            <constraint firstItem="RXJ-As-1OX" firstAttribute="top" secondItem="I83-dP-BeU" secondAttribute="bottom" constant="20" id="ro4-4a-xYV"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

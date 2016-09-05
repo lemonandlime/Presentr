@@ -29,6 +29,13 @@
 			remoteGlobalIDString = 0680CC2E1CE3EFA900CBAE4F;
 			remoteInfo = Presentr;
 		};
+		0F2375721D7D6D1C00A2D9AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F23756E1D7D6D1B00A2D9AB /* PresentrexampleSwift3.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0F2375591D7D6D1B00A2D9AB;
+			remoteInfo = PresentrexampleSwift3;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +54,7 @@
 		0680CC521CE3EFFA00CBAE4F /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		06BE3E4B1CED58DB0052424E /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
 		06BE3E4D1CED58EA0052424E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		0F23756E1D7D6D1B00A2D9AB /* PresentrexampleSwift3.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PresentrexampleSwift3.xcodeproj; path = PresentrexampleSwift3/PresentrexampleSwift3.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,7 @@
 		0680CC251CE3EFA900CBAE4F = {
 			isa = PBXGroup;
 			children = (
+				0F23756E1D7D6D1B00A2D9AB /* PresentrexampleSwift3.xcodeproj */,
 				0680CC311CE3EFA900CBAE4F /* Presentr */,
 				0680CC3D1CE3EFA900CBAE4F /* PresentrTests */,
 				0680CC301CE3EFA900CBAE4F /* Products */,
@@ -135,6 +144,14 @@
 				0680CC521CE3EFFA00CBAE4F /* AlertViewController.swift */,
 			);
 			name = Alert;
+			sourceTree = "<group>";
+		};
+		0F23756F1D7D6D1B00A2D9AB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0F2375731D7D6D1C00A2D9AB /* PresentrexampleSwift3.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +216,7 @@
 				TargetAttributes = {
 					0680CC2E1CE3EFA900CBAE4F = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 					0680CC381CE3EFA900CBAE4F = {
 						CreatedOnToolsVersion = 7.3;
@@ -215,6 +233,12 @@
 			mainGroup = 0680CC251CE3EFA900CBAE4F;
 			productRefGroup = 0680CC301CE3EFA900CBAE4F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0F23756F1D7D6D1B00A2D9AB /* Products */;
+					ProjectRef = 0F23756E1D7D6D1B00A2D9AB /* PresentrexampleSwift3.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0680CC2E1CE3EFA900CBAE4F /* Presentr */,
@@ -222,6 +246,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		0F2375731D7D6D1C00A2D9AB /* PresentrexampleSwift3.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = PresentrexampleSwift3.app;
+			remoteRef = 0F2375721D7D6D1C00A2D9AB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0680CC2D1CE3EFA900CBAE4F /* Resources */ = {
@@ -319,6 +353,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -360,6 +395,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -383,6 +419,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -401,6 +438,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = danielozano.Presentr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

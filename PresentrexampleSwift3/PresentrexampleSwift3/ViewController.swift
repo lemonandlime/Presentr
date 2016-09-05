@@ -1,9 +1,9 @@
 //
 //  ViewController.swift
-//  PresentrExample
+//  PresentrexampleSwift3
 //
-//  Created by Daniel Lozano on 5/23/16.
-//  Copyright © 2016 danielozano. All rights reserved.
+//  Created by Karl Söderberg on 05/09/16.
+//  Copyright © 2016 LemonandLime. All rights reserved.
 //
 
 import UIKit
@@ -37,13 +37,13 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
     // MARK: - IBAction's
-
+    
     @IBAction func alertDefault(_ sender: AnyObject) {
         presenter.presentationType = .alert
         // For default transitions you do not need to set this, this is to reset it just in case it was already changed by another presentation below.
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
         presenter.transitionType = .coverHorizontalFromLeft
         customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
     }
-
+    
     @IBAction func popupDefault(_ sender: AnyObject) {
         presenter.presentationType = .popup
         presenter.transitionType = .coverVertical
@@ -93,5 +93,8 @@ class ViewController: UIViewController {
         customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
     }
     
+
+
+
 }
 
