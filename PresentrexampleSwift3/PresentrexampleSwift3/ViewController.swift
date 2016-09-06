@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     }()
     
     var alertController: AlertViewController = {
-        let alertController = Presentr.alertViewController(title: "Message to driver", body: "This action can't be undone!")
+        let alertController = Presentr.alertViewController(title: "Message to driver", body: "This action can't be undone!, BUt if it could it would also mean that things could travel back in time trhu the ethernet cables.")
         let cancelAction = AlertAction(title: "CANCEL", style: .cancel) { alert in
             print("CANCEL!!")
         }
