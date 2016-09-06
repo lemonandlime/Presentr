@@ -181,6 +181,7 @@ open class AlertViewController: UIViewController {
         let style = action.style
         toButton.setTitle(title, for: UIControlState())
         toButton.backgroundColor = style.color()
+        toButton.setTitleColor(style.textColor(), for: .normal)
     }
     
     // MARK: IBAction's
