@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -90,6 +91,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="DSA-JB-VQW">
+            <objects>
+                <viewController storyboardIdentifier="Fancy" id="azQ-1N-P2e" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fyY-y7-HQB"/>
+                        <viewControllerLayoutGuide type="bottom" id="Iy4-12-Wm0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bc0-m4-BjE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Fancy ViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKq-Vk-Qzk">
+                                <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="32"/>
+                                <color key="textColor" red="0.34117648010000001" green="0.62352943419999995" blue="0.16862745579999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.64318426719999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Iy4-12-Wm0" firstAttribute="top" secondItem="sKq-Vk-Qzk" secondAttribute="bottom" constant="50" id="MHP-ce-1U1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sKq-Vk-Qzk" secondAttribute="trailing" id="OXC-1D-pWh"/>
+                            <constraint firstItem="sKq-Vk-Qzk" firstAttribute="leading" secondItem="bc0-m4-BjE" secondAttribute="leadingMargin" id="Pks-ox-DOj"/>
+                            <constraint firstItem="sKq-Vk-Qzk" firstAttribute="top" secondItem="fyY-y7-HQB" secondAttribute="bottom" constant="50" id="Q1M-4A-5dK"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v07-aK-sVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1225" y="98"/>
         </scene>
     </scenes>
 </document>

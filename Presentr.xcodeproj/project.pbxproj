@@ -115,10 +115,10 @@
 				0680CC321CE3EFA900CBAE4F /* Presentr.h */,
 				0680CC491CE3EFC500CBAE4F /* Presentr.swift */,
 				0680CC4B1CE3EFC500CBAE4F /* PresentrController.swift */,
+				0F2375791D7D789300A2D9AB /* PresentrConfiguration.swift */,
 				06686CB41CE96DCE00F88216 /* Animation */,
 				06D8AE8E1CE40BF300E00A6C /* Alert */,
 				06A1F0C51CF3D1C70057C79B /* Assets */,
-				0F2375791D7D789300A2D9AB /* PresentrConfiguration.swift */,
 			);
 			path = Presentr;
 			sourceTree = "<group>";

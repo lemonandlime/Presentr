@@ -174,6 +174,7 @@ public enum ModalSize {
      - returns: Exact float height value.
      */
     func calculateHeight(_ parentSize: CGSize) -> Float{
+        
         switch self {
         case .default:
             return floorf(Float(parentSize.height) * PresentrConstants.Values.defaultHeightPercentage)
@@ -262,6 +263,14 @@ open class Presentr: NSObject {
         let alertController = UIStoryboard(name: "Alert", bundle: bundle).instantiateInitialViewController() as! AlertViewController
         alertController.titleText = title
         alertController.bodyText = body
+        return alertController
+    }
+    
+    open static func alertViewController(title: String = PresentrConstants.Strings.alertTitle, bodyView: UIViewController) -> AlertViewController {
+        let bundle = Bundle(for: self)
+        let alertController = UIStoryboard(name: "Alert", bundle: bundle).instantiateInitialViewController() as! AlertViewController
+        alertController.titleText = title
+        alertController.bodyView = bodyView
         return alertController
     }
     

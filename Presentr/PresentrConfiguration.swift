@@ -13,4 +13,5 @@ struct PresentrConfiguration {
     static var cancelButtonColor: UIColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     static var cancelButtonTextColor: UIColor = #colorLiteral(red: 0.4037279487, green: 0.4037380815, blue: 0.4037326574, alpha: 1)
     static var destructiveButtonColor: UIColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+    static var cornerRadius: CGFloat = 6
 }

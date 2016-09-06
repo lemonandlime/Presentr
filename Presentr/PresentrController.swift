@@ -15,7 +15,7 @@ class PresentrController: UIPresentationController, UIAdaptivePresentationContro
     var presentationType: PresentationType = .popup {
         didSet {
             if presentationType == .bottomHalf || presentationType == .topHalf {
-                removeCornerRadiusFromPresentedView()
+                //removeCornerRadiusFromPresentedView()
             }
         }
     }
@@ -27,7 +27,7 @@ class PresentrController: UIPresentationController, UIAdaptivePresentationContro
     override init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?) {
         super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
         setupChromeView()
-        addCornerRadiusToPresentedView()
+        //addCornerRadiusToPresentedView()
     }
 
     // MARK: Setup
@@ -37,18 +37,6 @@ class PresentrController: UIPresentationController, UIAdaptivePresentationContro
         chromeView.addGestureRecognizer(tap)
         chromeView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
         chromeView.alpha = 0
-    }
-
-    fileprivate func addCornerRadiusToPresentedView() {
-        guard presentationType != .bottomHalf || presentationType != .topHalf else {
-            return
-        }
-        presentedViewController.view.layer.cornerRadius = 4
-        presentedViewController.view.layer.masksToBounds = true
-    }
-
-    fileprivate func removeCornerRadiusFromPresentedView() {
-        presentedViewController.view.layer.cornerRadius = 0
     }
 
     // MARK: Actions
@@ -91,25 +79,25 @@ extension PresentrController {
 
     // MARK: Presentation
     
-    override var frameOfPresentedViewInContainerView: CGRect {
-        var presentedViewFrame = CGRect.zero
-        let containerBounds = containerView!.bounds
+//    override var frameOfPresentedViewInContainerView: CGRect {
+//        var presentedViewFrame = CGRect.zero
+//        let containerBounds = containerView!.bounds
+//
+//        let size = self.size(forChildContentContainer: presentedViewController, withParentContainerSize: containerBounds.size)
+//        let center = calculateCenterPoint()
+//        let origin = calculateOrigin(center, size: size)
+//
+//        presentedViewFrame.size = size
+//        presentedViewFrame.origin = origin
+//
+//        return presentedViewFrame
+//    }
 
-        let size = self.size(forChildContentContainer: presentedViewController, withParentContainerSize: containerBounds.size)
-        let center = calculateCenterPoint()
-        let origin = calculateOrigin(center, size: size)
-
-        presentedViewFrame.size = size
-        presentedViewFrame.origin = origin
-
-        return presentedViewFrame
-    }
-
-    override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
-        let width = calculateWidth(parentSize)
-        let height = calculateHeight(parentSize)
-        return CGSize(width: CGFloat(width), height: CGFloat(height))
-    }
+//    override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
+//        let width = calculateWidth(parentSize)
+//        let height = calculateHeight(parentSize)
+//        return CGSize(width: CGFloat(width), height: CGFloat(height))
+//    }
 
     override func containerViewWillLayoutSubviews() {
         chromeView.frame = containerView!.bounds

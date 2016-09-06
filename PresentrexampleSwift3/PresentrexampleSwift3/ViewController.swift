@@ -53,7 +53,9 @@ class ViewController: UIViewController {
     
     @IBAction func alertCustom(_ sender: AnyObject) {
         presenter.presentationType = .alert
-        presenter.transitionType = .coverHorizontalFromLeft
+        presenter.transitionType = .coverVertical
+        let fancyVC = storyboard?.instantiateViewController(withIdentifier: "Fancy")
+        alertController.bodyView = fancyVC!
         customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
     }
     
