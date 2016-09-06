@@ -117,24 +117,14 @@ open class AlertViewController: UIViewController {
         setupButtons()
         setupBodyView()
     }
-
+    
     override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
     override open func updateViewConstraints() {
-        if actions.count == 1{
-            // If only one action, second button will have been removed from superview
-            // So, need to add constraint for first button trailing to superview
-            if let constraint = firstButtonWidthConstraint {
-                view.removeConstraint(constraint)
-            }
-            let views = ["button" : firstButton]
-            let constraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[button]-0-|",
-                                                                             options: NSLayoutFormatOptions(rawValue: 0),
-                                                                             metrics: nil,
-                                                                             views: views)
-            view.addConstraints(constraints)
+        if let constraint = firstButtonWidthConstraint {
+            constraint.isActive = actions.count != 1
         }
         super.updateViewConstraints()
     }
@@ -170,9 +160,9 @@ open class AlertViewController: UIViewController {
         if bodyView != nil {
             bodyLabel.removeFromSuperview()
         } else {
-             bodyLabel.text = bodyText ?? "This is an alert."
+            bodyLabel.text = bodyText ?? "This is an alert."
         }
-
+        
     }
     
     fileprivate func setupButtons(){
@@ -194,7 +184,7 @@ open class AlertViewController: UIViewController {
     }
     
     // MARK: IBAction's
-
+    
     @IBAction func didSelectFirstAction(_ sender: AnyObject) {
         guard let firstAction = actions.first else { return }
         if let handler = firstAction.handler {

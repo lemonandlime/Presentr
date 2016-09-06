@@ -110,6 +110,7 @@
                                     <constraint firstItem="D6b-5k-Z2E" firstAttribute="width" secondItem="Ps9-Oa-EAv" secondAttribute="width" multiplier="1:2" id="lDK-7o-jkM"/>
                                     <constraint firstItem="D6b-5k-Z2E" firstAttribute="leading" secondItem="Ps9-Oa-EAv" secondAttribute="leading" id="mB4-TL-fwB"/>
                                     <constraint firstAttribute="trailing" secondItem="fb2-Gy-IT3" secondAttribute="trailing" id="pEG-es-l98"/>
+                                    <constraint firstItem="D6b-5k-Z2E" firstAttribute="width" secondItem="Ps9-Oa-EAv" secondAttribute="width" priority="999" id="q6s-5R-D3I"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -126,6 +127,7 @@
                         <outlet property="bodyLabel" destination="Qh8-vj-abl" id="8Dt-TA-eY5"/>
                         <outlet property="contentView" destination="Ps9-Oa-EAv" id="mCj-nc-Ozs"/>
                         <outlet property="firstButton" destination="D6b-5k-Z2E" id="ita-0A-NMe"/>
+                        <outlet property="firstButtonWidthConstraint" destination="lDK-7o-jkM" id="Qic-M6-g7c"/>
                         <outlet property="secondButton" destination="RcP-bq-8lO" id="eJE-RA-Rxs"/>
                         <outlet property="titleLabel" destination="0ba-d8-VCy" id="G5J-e4-99j"/>
                     </connections>
