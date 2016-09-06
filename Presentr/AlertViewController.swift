@@ -84,7 +84,7 @@ open class AlertViewController: UIViewController {
     /// Text that will be used as the body for the alert
     open var bodyText: String?
     
-    open var bodyView: UIViewController?
+    open var bodyViewController: UIViewController?
     
     /// If set to false, alert wont auto-dismiss the controller when an action is clicked. Dismissal will be up to the action's handler. Default is true.
     open var autoDismiss: Bool = true
@@ -115,7 +115,7 @@ open class AlertViewController: UIViewController {
         //setupFonts()
         setupLabels()
         setupButtons()
-        setupBodyView()
+        setupBodyViewController()
     }
     
     override open func didReceiveMemoryWarning() {
@@ -143,21 +143,27 @@ open class AlertViewController: UIViewController {
     
     // MARK: Setup
     
-    private func setupBodyView(){
-        guard let bodyView = bodyView else { return }
-        bodyView.view.translatesAutoresizingMaskIntoConstraints = false
-        addChildViewController(bodyView)
-        bodyContentView.addSubview(bodyView.view)
-        bodyContentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[body]|", options: .alignAllCenterX, metrics: nil, views: ["body" : bodyView.view]))
-        bodyContentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[body]|", options: .alignAllCenterX, metrics: nil, views: ["body" : bodyView.view]))
-        bodyView.didMove(toParentViewController: self)
+    private func setupBodyViewController(){
+        guard let bodyViewController = bodyViewController else { return }
+        bodyViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        addChildViewController(bodyViewController)
+        bodyContentView.addSubview(bodyViewController.view)
+        bodyContentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[body]|",
+                                                                      options: .alignAllCenterX,
+                                                                      metrics: nil,
+                                                                      views: ["body" : bodyViewController.view]))
+        bodyContentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[body]|",
+                                                                      options: .alignAllCenterX,
+                                                                      metrics: nil,
+                                                                      views: ["body" : bodyViewController.view]))
+        bodyViewController.didMove(toParentViewController: self)
         view.setNeedsLayout()
         view.layoutIfNeeded()
     }
     
     fileprivate func setupLabels(){
         titleLabel.text = titleText 
-        if bodyView != nil {
+        if bodyViewController != nil {
             bodyLabel.removeFromSuperview()
         } else {
             bodyLabel.text = bodyText

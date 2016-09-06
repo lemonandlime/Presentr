@@ -55,7 +55,7 @@ class ViewController: UIViewController {
         presenter.presentationType = .alert
         presenter.transitionType = .coverVertical
         let fancyVC = storyboard?.instantiateViewController(withIdentifier: "Fancy")
-        alertController.bodyView = fancyVC!
+        alertController.bodyViewController = fancyVC!
         customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
     }
     
