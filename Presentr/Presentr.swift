@@ -23,39 +23,7 @@ public enum PresentationType {
     case popup
     case topHalf
     case bottomHalf
-    
-    /**
-     Describes the sizing for each Presentr type. It is meant to be non device/width specific. Except with the .Custom type which should be for cases when the modal size is very small, i.e. smaller than any device.
-     
-     - returns: A tuple containing two 'ModalSize' enums, describing its width and height.
-     */
-    func size() -> (width: ModalSize, height: ModalSize) {
-        switch self {
-        case .alert:
-            return (.custom(size: 270), .custom(size: 180))
-        case .popup:
-            return (.default, .default)
-        case .topHalf, .bottomHalf:
-            return (.full, .half)
-        }
-    }
-    
-    /**
-     Describes the position for each Presentr type. It is meant to be non device/width specific.
-     
-     - returns: Returns a 'ModalCenterPosition' enum describing the center point for the presented modal.
-     */
-    func position() -> ModalCenterPosition {
-        switch self {
-        case .alert, .popup:
-            return .center
-        case .topHalf:
-            return .topCenter
-        case .bottomHalf:
-            return .bottomCenter
-        }
-    }
-    
+
     /**
      Associates each Presentr type with a default transition type, in case one is not provided to the Presentr object.
      
@@ -131,63 +99,6 @@ public enum TransitionType{
     
 }
 
-/**
- Descibes a presented modal's size dimension (width or height). It is meant to be non-specific, but the exact position can be calculated by calling the 'calculate' methods, passing in the 'parentSize' which only the Presentation Controller should be aware of.
- 
- - Default: Default.
- - Half:    Half of the screen.
- - Full:    Full screen.
- - Custom:  Custom fixed size. To be used only when we want a specific size, and are sure it wont be bigger than any device's screen, like in a small Alert.
- */
-public enum ModalSize {
-    
-    case `default`
-    case half
-    case full
-    case custom(size: Float)
-
-    /**
-     Calculates the exact width value for the presented view controller.
-     
-     - parameter parentSize: The presenting view controller's size. Provided by the presentation controller.
-     
-     - returns: Exact float width value.
-     */
-    func calculateWidth(_ parentSize: CGSize) -> Float{
-        switch self {
-        case .default:
-            return floorf(Float(parentSize.width) - (PresentrConstants.Values.defaultSideMargin * 2.0))
-        case .half:
-            return floorf(Float(parentSize.width) / 2.0)
-        case .full:
-            return Float(parentSize.width)
-        case .custom(let size):
-            return size
-        }
-    }
-    
-    /**
-     Calculates the exact height value for the presented view controller.
-     
-     - parameter parentSize: The presenting view controller's size. Provided by the presentation controller.
-     
-     - returns: Exact float height value.
-     */
-    func calculateHeight(_ parentSize: CGSize) -> Float{
-        
-        switch self {
-        case .default:
-            return floorf(Float(parentSize.height) * PresentrConstants.Values.defaultHeightPercentage)
-        case .half:
-            return floorf(Float(parentSize.height) / 2.0)
-        case .full:
-            return Float(parentSize.height)
-        case .custom(let size):
-            return size
-        }
-    }
-        
-}
 
 /**
  Describes the presented presented view controller's center position. It is meant to be non-specific, but we can use the 'calculatePoint' method when we want to calculate the exact point by passing in the 'containerBounds' rect that only the presentation controller should be aware of.
@@ -222,16 +133,6 @@ public enum ModalCenterPosition {
     
 }
 
-private struct PresentrConstants {
-    struct Values {
-        static let defaultSideMargin: Float = 30.0
-        static let defaultHeightPercentage: Float = 0.66
-    }
-    struct Strings {
-        static let alertTitle = "Alert"
-        static let alertBody = "This is an alert."
-    }
-}
 
 /// Main Presentr class. This is the point of entry for using the framework.
 open class Presentr: NSObject {
@@ -258,7 +159,7 @@ open class Presentr: NSObject {
      
      - returns: Returns a configured instance of 'AlertViewController'
      */
-    open static func alertViewController(title: String = PresentrConstants.Strings.alertTitle, body: String = PresentrConstants.Strings.alertBody) -> AlertViewController {
+    open static func alertViewController(title: String, body: String) -> AlertViewController {
         let bundle = Bundle(for: self)
         let alertController = UIStoryboard(name: "Alert", bundle: bundle).instantiateInitialViewController() as! AlertViewController
         alertController.titleText = title
@@ -274,7 +175,7 @@ open class Presentr: NSObject {
      
      - returns: Returns a configured instance of 'AlertViewController'
      */
-    open static func alertViewController(title: String = PresentrConstants.Strings.alertTitle, bodyViewController: UIViewController) -> AlertViewController {
+    open static func alertViewController(title: String, bodyViewController: UIViewController) -> AlertViewController {
         let bundle = Bundle(for: self)
         let alertController = UIStoryboard(name: "Alert", bundle: bundle).instantiateInitialViewController() as! AlertViewController
         alertController.titleText = title

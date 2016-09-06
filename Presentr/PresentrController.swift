@@ -47,29 +47,6 @@ class PresentrController: UIPresentationController, UIAdaptivePresentationContro
         }
     }
 
-    // MARK: - Sizing Helper's
-    
-    fileprivate func calculateWidth(_ parentSize: CGSize) -> Float {
-        let width = presentationType.size().width
-        return width.calculateWidth(parentSize)
-    }
-
-    fileprivate func calculateHeight(_ parentSize: CGSize) -> Float {
-        let height = presentationType.size().height
-        return height.calculateHeight(parentSize)
-    }
-
-    fileprivate func calculateCenterPoint() -> CGPoint {
-        let containerBounds = containerView!.bounds
-        let position = presentationType.position()
-        return position.calculatePoint(containerBounds)
-    }
-
-    fileprivate func calculateOrigin(_ center: CGPoint, size: CGSize) -> CGPoint {
-        let x: CGFloat = center.x - size.width / 2
-        let y: CGFloat = center.y - size.height / 2
-        return CGPoint(x: x, y: y)
-    }
 
 }
 
