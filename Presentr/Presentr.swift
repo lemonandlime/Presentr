@@ -266,11 +266,19 @@ open class Presentr: NSObject {
         return alertController
     }
     
-    open static func alertViewController(title: String = PresentrConstants.Strings.alertTitle, bodyView: UIViewController) -> AlertViewController {
+    /**
+     Public helper class method for creating and configuring an instance of the 'AlertViewController'
+     
+     - parameter title: Title to be used in the Alert View Controller.
+     - parameter bodyViewController: A View Controller that will be displayed in the Content View.
+     
+     - returns: Returns a configured instance of 'AlertViewController'
+     */
+    open static func alertViewController(title: String = PresentrConstants.Strings.alertTitle, bodyViewController: UIViewController) -> AlertViewController {
         let bundle = Bundle(for: self)
         let alertController = UIStoryboard(name: "Alert", bundle: bundle).instantiateInitialViewController() as! AlertViewController
         alertController.titleText = title
-        alertController.bodyView = bodyView
+        alertController.bodyView = bodyViewController
         return alertController
     }
     

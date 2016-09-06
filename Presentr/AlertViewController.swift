@@ -156,11 +156,11 @@ open class AlertViewController: UIViewController {
     }
     
     fileprivate func setupLabels(){
-        titleLabel.text = titleText ?? "Alert"
+        titleLabel.text = titleText 
         if bodyView != nil {
             bodyLabel.removeFromSuperview()
         } else {
-            bodyLabel.text = bodyText ?? "This is an alert."
+            bodyLabel.text = bodyText
         }
         
     }
