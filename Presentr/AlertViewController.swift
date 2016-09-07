@@ -125,7 +125,6 @@ open class AlertViewController: UIViewController {
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var firstButton: UIButton!
     @IBOutlet weak var secondButton: UIButton!
-    @IBOutlet weak var firstButtonWidthConstraint: NSLayoutConstraint!
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -152,13 +151,6 @@ open class AlertViewController: UIViewController {
     
     override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    override open func updateViewConstraints() {
-        if let constraint = firstButtonWidthConstraint {
-            constraint.isActive = actions.count != 1
-        }
-        super.updateViewConstraints()
     }
     
     // MARK: AlertAction's
@@ -210,7 +202,7 @@ open class AlertViewController: UIViewController {
             let secondAction = actions.last!
             apply(secondAction, toButton: secondButton)
         }else{
-            secondButton.removeFromSuperview()
+            secondButton.isHidden = true
         }
     }
     

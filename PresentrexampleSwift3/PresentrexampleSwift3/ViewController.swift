@@ -21,7 +21,8 @@ class ViewController: UIViewController {
     }()
     
     var alertController: AlertViewController = {
-        let alertController = Presentr.alertViewController(title: "Message to driver", body: "This action can't be undone!, BUt if it could it would also mean that things could travel back in time trhu the ethernet cables.")
+        
+        let alertController = Presentr.alertViewController(title: "Message to driver", buttonStack: .horisontal, body: "This action can't be undone!, BUt if it could it would also mean that things could travel back in time trhu the ethernet cables.")
         let cancelAction = AlertAction(title: "CANCEL", style: .cancel) { alert in
             print("CANCEL!!")
         }
@@ -55,11 +56,15 @@ class ViewController: UIViewController {
         presenter.presentationType = .alert
         presenter.transitionType = .coverVertical
         let fancyVC = storyboard?.instantiateViewController(withIdentifier: "Fancy")
-        //alertController.bodyViewController = fancyVC!
-        presentInModal(viewControllerToPresent: fancyVC!, title: "Fancy eh?", actions: nil, animated: true, completion: nil)
-        //presentInModal(viewControllerToPresent: fancyVC!, animated: true, completion: nil)
-
-        //customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
+        let cancelAction = AlertAction(title: "CANCEL", style: .cancel) { alert in
+            print("CANCEL!!")
+        }
+        let okAction = AlertAction(title: "SAVE", style: .default) { alert in
+            print("OK!!")
+        }
+        
+        presentInModal(viewControllerToPresent: fancyVC!, title: "Fancy eh?", actions: [cancelAction, okAction], buttonStack: .horisontal, animated: true, completion: nil)
+ 
     }
     
     @IBAction func popupDefault(_ sender: AnyObject) {
@@ -68,7 +73,7 @@ class ViewController: UIViewController {
         let textViewVC = InputTextModalBodyViewController.create(text: userMessage, placeholder: placeholderText) { (text) in
             self.userMessage = text ?? ""
         }
-        presentInModal(viewControllerToPresent: textViewVC, title: "Fancy eh?", actions: nil, animated: true, completion: nil)
+        presentInModal(viewControllerToPresent: textViewVC, title: "Fancy eh?", actions: nil, buttonStack: .horisontal, animated: true, completion: nil)
 
 //        customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
     }

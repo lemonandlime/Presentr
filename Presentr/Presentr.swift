@@ -37,7 +37,11 @@ public enum PresentationType {
             return .coverVerticalFromTop
         }
     }
-    
+}
+
+public enum ButtonStackType {
+    case horisontal
+    case vertical
 }
 
 /**
@@ -115,37 +119,22 @@ open class Presentr: NSObject {
         self.presentationType = presentationType
     }
     
-    // MARK: Class Helper Methods
-    
-    /**
-     Public helper class method for creating and configuring an instance of the 'AlertViewController'
-     
-     - parameter title: Title to be used in the Alert View Controller.
-     - parameter body: Body of the message to be displayed in the Alert View Controller.
-     
-     - returns: Returns a configured instance of 'AlertViewController'
-     */
-    open static func alertViewController(title: String, body: String) -> AlertViewController {
-        let bundle = Bundle(for: self)
-        let alertController = UIStoryboard(name: "Alert", bundle: bundle).instantiateInitialViewController() as! AlertViewController
-        alertController.titleText = title
+    open static func alertViewController(title: String, buttonStack: ButtonStackType, body: String) -> AlertViewController {
+        let alertController = alertViewController(title: title, buttonStack: buttonStack)
         alertController.bodyText = body
         return alertController
     }
     
-    /**
-     Public helper class method for creating and configuring an instance of the 'AlertViewController'
-     
-     - parameter title: Title to be used in the Alert View Controller.
-     - parameter bodyViewController: A View Controller that will be displayed in the Content View.
-     
-     - returns: Returns a configured instance of 'AlertViewController'
-     */
-    open static func alertViewController(title: String, bodyViewController: UIViewController) -> AlertViewController {
+    open static func alertViewController(title: String, buttonStack: ButtonStackType,  bodyViewController: UIViewController) -> AlertViewController {
+        let alertController = alertViewController(title: title, buttonStack: buttonStack)
+        alertController.bodyViewController = bodyViewController
+        return alertController
+    }
+    
+    open static func alertViewController(title: String, buttonStack: ButtonStackType) -> AlertViewController {
         let bundle = Bundle(for: self)
         let alertController = UIStoryboard(name: "Alert", bundle: bundle).instantiateInitialViewController() as! AlertViewController
         alertController.titleText = title
-        alertController.bodyViewController = bodyViewController
         return alertController
     }
     
@@ -179,11 +168,12 @@ public extension UIViewController {
     func presentInModal(viewControllerToPresent: UIViewController,
                         title: String,
                         actions: [AlertAction]?,
+                        buttonStack: ButtonStackType,
                         animated: Bool,
                         completion: (() -> Void)?) {
         
         let presentr = Presentr(presentationType: .alert)
-        let alert = Presentr.alertViewController(title: title, bodyViewController: viewControllerToPresent)
+        let alert = Presentr.alertViewController(title: title, buttonStack: buttonStack, bodyViewController: viewControllerToPresent)
         actions?.forEach({ (action) in
             alert.addAction(action)
         })
@@ -196,11 +186,12 @@ public extension UIViewController {
     func presentInModal(message: String,
                         title: String,
                         actions: [AlertAction]?,
+                        buttonStack: ButtonStackType,
                         animated: Bool,
                         completion: (() -> Void)?) {
         
         let presentr = Presentr(presentationType: .alert)
-        let alert = Presentr.alertViewController(title: title, body: message)
+        let alert = Presentr.alertViewController(title: title, buttonStack: buttonStack, body: message)
         actions?.forEach({ (action) in
             alert.addAction(action)
         })

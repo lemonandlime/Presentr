@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -47,38 +46,6 @@
                                             <constraint firstAttribute="height" constant="88" id="bcm-x4-BY5"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6b-5k-Z2E">
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="55" id="ZDX-M7-aqu"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <state key="normal" title="CANCEL">
-                                            <color key="titleColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didSelectFirstAction:" destination="bHu-FE-ZFh" eventType="touchUpInside" id="WLk-ni-TlO"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RcP-bq-8lO">
-                                        <color key="backgroundColor" red="0.98431372549999996" green="0.81568627449999997" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="Uvn-2w-zrj"/>
-                                            <constraint firstAttribute="height" constant="55" id="c60-Vy-4qo"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <state key="normal" title="SAVE">
-                                            <color key="titleColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="Uvn-2w-zrj"/>
-                                            </mask>
-                                        </variation>
-                                        <connections>
-                                            <action selector="didSelectSecondAction:" destination="bHu-FE-ZFh" eventType="touchUpInside" id="Ry1-JL-QNd"/>
-                                        </connections>
-                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fb2-Gy-IT3">
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This action can't be undone." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qh8-vj-abl">
@@ -96,23 +63,46 @@
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="wKK-iq-xoF"/>
                                         </constraints>
                                     </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="oal-7b-xA8">
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6b-5k-Z2E">
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <state key="normal" title="CANCEL">
+                                                    <color key="titleColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didSelectFirstAction:" destination="bHu-FE-ZFh" eventType="touchUpInside" id="WLk-ni-TlO"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RcP-bq-8lO">
+                                                <color key="backgroundColor" red="0.98431372549999996" green="0.81568627449999997" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <state key="normal" title="SAVE">
+                                                    <color key="titleColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didSelectSecondAction:" destination="bHu-FE-ZFh" eventType="touchUpInside" id="Ry1-JL-QNd"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="9B8-zV-qVy"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="fb2-Gy-IT3" firstAttribute="top" secondItem="GkV-wV-EHY" secondAttribute="bottom" id="0gW-VB-P5W"/>
-                                    <constraint firstAttribute="bottom" secondItem="D6b-5k-Z2E" secondAttribute="bottom" id="4I8-qp-mif"/>
-                                    <constraint firstAttribute="bottom" secondItem="RcP-bq-8lO" secondAttribute="bottom" id="6gf-zb-Xud"/>
-                                    <constraint firstItem="D6b-5k-Z2E" firstAttribute="top" secondItem="fb2-Gy-IT3" secondAttribute="bottom" id="FyR-AM-aZy"/>
-                                    <constraint firstAttribute="trailing" secondItem="RcP-bq-8lO" secondAttribute="trailing" id="YN1-ya-Uv6"/>
+                                    <constraint firstAttribute="bottom" secondItem="oal-7b-xA8" secondAttribute="bottom" id="KHz-ye-msI"/>
+                                    <constraint firstItem="oal-7b-xA8" firstAttribute="leading" secondItem="Ps9-Oa-EAv" secondAttribute="leading" id="WZU-jc-kUb"/>
                                     <constraint firstItem="fb2-Gy-IT3" firstAttribute="leading" secondItem="Ps9-Oa-EAv" secondAttribute="leading" id="YeY-fy-BzS"/>
                                     <constraint firstAttribute="trailing" secondItem="GkV-wV-EHY" secondAttribute="trailing" id="YfO-wd-FNB"/>
                                     <constraint firstItem="GkV-wV-EHY" firstAttribute="leading" secondItem="Ps9-Oa-EAv" secondAttribute="leading" id="abg-6s-43j"/>
                                     <constraint firstItem="GkV-wV-EHY" firstAttribute="top" secondItem="Ps9-Oa-EAv" secondAttribute="top" id="bBx-uc-7dA"/>
-                                    <constraint firstItem="RcP-bq-8lO" firstAttribute="leading" secondItem="D6b-5k-Z2E" secondAttribute="trailing" id="kg3-GQ-kKS"/>
-                                    <constraint firstItem="D6b-5k-Z2E" firstAttribute="width" secondItem="Ps9-Oa-EAv" secondAttribute="width" multiplier="1:2" id="lDK-7o-jkM"/>
-                                    <constraint firstItem="D6b-5k-Z2E" firstAttribute="leading" secondItem="Ps9-Oa-EAv" secondAttribute="leading" id="mB4-TL-fwB"/>
+                                    <constraint firstItem="fb2-Gy-IT3" firstAttribute="bottom" secondItem="oal-7b-xA8" secondAttribute="top" id="iSX-kN-9j2"/>
                                     <constraint firstAttribute="trailing" secondItem="fb2-Gy-IT3" secondAttribute="trailing" id="pEG-es-l98"/>
-                                    <constraint firstItem="D6b-5k-Z2E" firstAttribute="width" secondItem="Ps9-Oa-EAv" secondAttribute="width" priority="999" id="q6s-5R-D3I"/>
+                                    <constraint firstAttribute="trailing" secondItem="oal-7b-xA8" secondAttribute="trailing" id="pl8-cV-6sm"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -132,7 +122,6 @@
                         <outlet property="contentView" destination="Ps9-Oa-EAv" id="mCj-nc-Ozs"/>
                         <outlet property="contentViewBottomConstraint" destination="y95-Ow-6yP" id="MlE-Yg-jj6"/>
                         <outlet property="firstButton" destination="D6b-5k-Z2E" id="ita-0A-NMe"/>
-                        <outlet property="firstButtonWidthConstraint" destination="lDK-7o-jkM" id="Qic-M6-g7c"/>
                         <outlet property="secondButton" destination="RcP-bq-8lO" id="eJE-RA-Rxs"/>
                         <outlet property="titleLabel" destination="0ba-d8-VCy" id="G5J-e4-99j"/>
                     </connections>
