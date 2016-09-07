@@ -135,6 +135,7 @@ open class Presentr: NSObject {
         let bundle = Bundle(for: self)
         let alertController = UIStoryboard(name: "Alert", bundle: bundle).instantiateInitialViewController() as! AlertViewController
         alertController.titleText = title
+        alertController.buttonStackType = buttonStack
         return alertController
     }
     

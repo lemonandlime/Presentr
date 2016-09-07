@@ -31,6 +31,7 @@ class ViewController: UIViewController {
         }
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
         return alertController
     }()
     
@@ -49,7 +50,20 @@ class ViewController: UIViewController {
     // MARK: - IBAction's
     
     @IBAction func alertDefault(_ sender: AnyObject) {
-
+        presenter.presentationType = .alert
+        presenter.transitionType = .coverVertical
+        let fancyVC = storyboard?.instantiateViewController(withIdentifier: "Fancy")
+        let cancelAction = AlertAction(title: "CANCEL", style: .cancel) { alert in
+            print("CANCEL!!")
+        }
+        let okAction = AlertAction(title: "SAVE", style: .default) { alert in
+            print("OK!!")
+        }
+        let otherAction = AlertAction(title: "OTHER", style: .cancel) { alert in
+            print("OK!!")
+        }
+        
+        presentInModal(viewControllerToPresent: fancyVC!, title: "Fancy eh?", actions: [okAction, cancelAction, otherAction], buttonStack: .vertical, animated: true, completion: nil)
     }
     
     @IBAction func alertCustom(_ sender: AnyObject) {
@@ -62,8 +76,11 @@ class ViewController: UIViewController {
         let okAction = AlertAction(title: "SAVE", style: .default) { alert in
             print("OK!!")
         }
+        let otherAction = AlertAction(title: "OTHER", style: .cancel) { alert in
+            print("OK!!")
+        }
         
-        presentInModal(viewControllerToPresent: fancyVC!, title: "Fancy eh?", actions: [cancelAction, okAction], buttonStack: .horisontal, animated: true, completion: nil)
+        presentInModal(viewControllerToPresent: fancyVC!, title: "Fancy eh?", actions: [cancelAction, otherAction, okAction], buttonStack: .horisontal, animated: true, completion: nil)
  
     }
     

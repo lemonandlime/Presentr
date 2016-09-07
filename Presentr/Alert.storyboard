@@ -63,10 +63,13 @@
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="wKK-iq-xoF"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="oal-7b-xA8">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="oal-7b-xA8">
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6b-5k-Z2E">
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="55" id="Sin-gj-Ca2"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <state key="normal" title="CANCEL">
                                                     <color key="titleColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
@@ -77,6 +80,9 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RcP-bq-8lO">
                                                 <color key="backgroundColor" red="0.98431372549999996" green="0.81568627449999997" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="55" id="hJp-Vo-kWM"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <state key="normal" title="SAVE">
                                                     <color key="titleColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
@@ -85,13 +91,25 @@
                                                     <action selector="didSelectSecondAction:" destination="bHu-FE-ZFh" eventType="touchUpInside" id="Ry1-JL-QNd"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gqd-pY-yCT">
+                                                <color key="backgroundColor" red="0.98431372549999996" green="0.81568627449999997" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="55" id="IBI-2b-OpP"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <state key="normal" title="OTHER">
+                                                    <color key="titleColor" red="0.3294117647" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didSelectSecondAction:" destination="bHu-FE-ZFh" eventType="touchUpInside" id="DVt-6C-ie1"/>
+                                                    <action selector="didSelectThirdAction:" destination="bHu-FE-ZFh" eventType="touchUpInside" id="bKM-6B-0Mn"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="55" id="9B8-zV-qVy"/>
-                                        </constraints>
+                                        <color key="tintColor" red="0.74509805439999999" green="0.15686275059999999" blue="0.074509806930000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.68235294120000001" green="0.68235294120000001" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="fb2-Gy-IT3" firstAttribute="top" secondItem="GkV-wV-EHY" secondAttribute="bottom" id="0gW-VB-P5W"/>
                                     <constraint firstAttribute="bottom" secondItem="oal-7b-xA8" secondAttribute="bottom" id="KHz-ye-msI"/>
@@ -119,10 +137,12 @@
                     <connections>
                         <outlet property="bodyContentView" destination="fb2-Gy-IT3" id="tgJ-gp-bqq"/>
                         <outlet property="bodyLabel" destination="Qh8-vj-abl" id="8Dt-TA-eY5"/>
+                        <outlet property="buttonStack" destination="oal-7b-xA8" id="LIt-rE-amK"/>
                         <outlet property="contentView" destination="Ps9-Oa-EAv" id="mCj-nc-Ozs"/>
                         <outlet property="contentViewBottomConstraint" destination="y95-Ow-6yP" id="MlE-Yg-jj6"/>
                         <outlet property="firstButton" destination="D6b-5k-Z2E" id="ita-0A-NMe"/>
                         <outlet property="secondButton" destination="RcP-bq-8lO" id="eJE-RA-Rxs"/>
+                        <outlet property="thirdButton" destination="Gqd-pY-yCT" id="ZJm-1H-dtV"/>
                         <outlet property="titleLabel" destination="0ba-d8-VCy" id="G5J-e4-99j"/>
                     </connections>
                 </viewController>

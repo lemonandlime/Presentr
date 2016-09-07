@@ -104,6 +104,8 @@ extension AlertViewController {
 /// UIViewController subclass that displays the alert
 open class AlertViewController: UIViewController {
     
+    open var buttonStackType: ButtonStackType = .horisontal
+    
     /// Text that will be used as the title for the alert
     open var titleText: String?
     /// Text that will be used as the body for the alert
@@ -125,6 +127,8 @@ open class AlertViewController: UIViewController {
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var firstButton: UIButton!
     @IBOutlet weak var secondButton: UIButton!
+    @IBOutlet weak var thirdButton: UIButton!
+    @IBOutlet weak var buttonStack: UIStackView!
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -142,6 +146,7 @@ open class AlertViewController: UIViewController {
         setupLabels()
         setupButtons()
         setupBodyViewController()
+        
     }
     
     override open func viewDidDisappear(_ animated: Bool) {
@@ -161,8 +166,8 @@ open class AlertViewController: UIViewController {
      - parameter action: The 'AlertAction' to be added
      */
     open func addAction(_ action: AlertAction){
-        guard actions.count < 2 else { return }
-        actions += [action]
+        guard actions.count < 3 else { return }
+        actions.append(action)
     }
     
     // MARK: Setup
@@ -196,13 +201,27 @@ open class AlertViewController: UIViewController {
     }
     
     fileprivate func setupButtons(){
+        var maximumNumberOfButtons = 3
+        if buttonStackType == .vertical {
+            buttonStack.axis = .vertical
+        } else {
+            buttonStack.axis = .horizontal
+        }
+        
+        
         guard let firstAction = actions.first else { return }
         apply(firstAction, toButton: firstButton)
-        if actions.count == 2{
-            let secondAction = actions.last!
-            apply(secondAction, toButton: secondButton)
+        
+        if actions.count >= 2{
+            apply(actions[1], toButton: secondButton)
         }else{
             secondButton.isHidden = true
+        }
+        
+        if actions.count >= 3{
+            apply(actions[2], toButton: thirdButton)
+        }else{
+            thirdButton.isHidden = true
         }
     }
     
@@ -217,16 +236,21 @@ open class AlertViewController: UIViewController {
     // MARK: IBAction's
     
     @IBAction func didSelectFirstAction(_ sender: AnyObject) {
-        guard let firstAction = actions.first else { return }
-        if let handler = firstAction.handler {
+        if let handler = actions[0].handler {
             handler()
         }
         dismiss()
     }
     
     @IBAction func didSelectSecondAction(_ sender: AnyObject) {
-        guard let secondAction = actions.last , actions.count == 2 else { return }
-        if let handler = secondAction.handler {
+        if let handler = actions[1].handler {
+            handler()
+        }
+        dismiss()
+    }
+    
+    @IBAction func didSelectThirdAction(_ sender: AnyObject) {
+        if let handler = actions[2].handler {
             handler()
         }
         dismiss()
