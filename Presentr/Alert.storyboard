@@ -150,10 +150,10 @@
             </objects>
             <point key="canvasLocation" x="-610.39999999999998" y="196.55172413793105"/>
         </scene>
-        <!--Input Text Modal Body View Controller-->
+        <!--Text View Modal Body-->
         <scene sceneID="E5a-E2-fth">
             <objects>
-                <viewController storyboardIdentifier="TextViewBody" id="qHR-Ap-QgB" customClass="InputTextModalBodyViewController" customModule="Presentr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TextViewBody" id="qHR-Ap-QgB" customClass="TextViewModalBody" customModule="Presentr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="P71-sD-Imh"/>
                         <viewControllerLayoutGuide type="bottom" id="EMa-4t-DbZ"/>

@@ -102,7 +102,7 @@ extension AlertViewController {
 }
 
 /// UIViewController subclass that displays the alert
-open class AlertViewController: UIViewController {
+public class AlertViewController: UIViewController {
     
     open var buttonStackType: ButtonStackType = .horisontal
     
@@ -112,6 +112,8 @@ open class AlertViewController: UIViewController {
     open var bodyText: String?
     
     open var bodyViewController: UIViewController?
+    
+    open var bodyView: UIView?
     
     /// If set to false, alert wont auto-dismiss the controller when an action is clicked. Dismissal will be up to the action's handler. Default is true.
     open var autoDismiss: Bool = true
@@ -142,11 +144,14 @@ open class AlertViewController: UIViewController {
         contentView.layer.cornerRadius = PresentrConfiguration.cornerRadius
         contentView.layer.masksToBounds = true
         
-        //setupFonts()
         setupLabels()
         setupButtons()
-        setupBodyViewController()
-        
+        if bodyView != nil {
+            setupBodyView()
+        }
+        if bodyViewController != nil {
+            setupBodyViewController()
+        }        
     }
     
     override open func viewDidDisappear(_ animated: Bool) {
@@ -186,6 +191,22 @@ open class AlertViewController: UIViewController {
                                                                       metrics: nil,
                                                                       views: ["body" : bodyViewController.view]))
         bodyViewController.didMove(toParentViewController: self)
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
+    }
+    
+    private func setupBodyView() {
+        guard let bodyView = bodyView else { return }
+        bodyView.translatesAutoresizingMaskIntoConstraints = false
+        bodyContentView.addSubview(bodyView)
+        bodyContentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[body]|",
+                                                                      options: .alignAllCenterX,
+                                                                      metrics: nil,
+                                                                      views: ["body" : bodyView]))
+        bodyContentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[body]|",
+                                                                      options: .alignAllCenterX,
+                                                                      metrics: nil,
+                                                                      views: ["body" : bodyView]))
         view.setNeedsLayout()
         view.layoutIfNeeded()
     }

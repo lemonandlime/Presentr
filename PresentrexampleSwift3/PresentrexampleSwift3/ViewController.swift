@@ -63,7 +63,11 @@ class ViewController: UIViewController {
             print("OK!!")
         }
         
-        presentInModal(viewControllerToPresent: fancyVC!, title: "Fancy eh?", actions: [okAction, cancelAction, otherAction], buttonStack: .vertical, animated: true, completion: nil)
+       let label =  UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        label.text = "Kalle"
+        
+        
+        presentInModal(viewToPresent: label, title: "Fancy eh?", actions: [okAction, cancelAction, otherAction], buttonStack: .vertical, animated: true, completion: nil)
     }
     
     @IBAction func alertCustom(_ sender: AnyObject) {
@@ -87,10 +91,11 @@ class ViewController: UIViewController {
     @IBAction func popupDefault(_ sender: AnyObject) {
         presenter.presentationType = .popup
         presenter.transitionType = .coverVertical
-        let textViewVC = InputTextModalBodyViewController.create(text: userMessage, placeholder: placeholderText) { (text) in
-            self.userMessage = text ?? ""
+        let textViewVC = TextViewModalBody.create(text: userMessage, placeholder: placeholderText)
+        let saveAction = AlertAction(title: "SAVE CHANGED", style: .default) {
+            self.userMessage = textViewVC.userInputText ?? ""
         }
-        presentInModal(viewControllerToPresent: textViewVC, title: "Fancy eh?", actions: nil, buttonStack: .horisontal, animated: true, completion: nil)
+        presentInModal(viewControllerToPresent: textViewVC, title: "Fancy eh?", actions: [saveAction], buttonStack: .horisontal, animated: true, completion: nil)
 
 //        customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
     }

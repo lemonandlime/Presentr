@@ -131,7 +131,15 @@ open class Presentr: NSObject {
         return alertController
     }
     
-    open static func alertViewController(title: String, buttonStack: ButtonStackType) -> AlertViewController {
+    open static func alertViewController(title: String, buttonStack: ButtonStackType,  bodyView: UIView) -> AlertViewController {
+        let alertController = alertViewController(title: title, buttonStack: buttonStack)
+        alertController.bodyView = bodyView
+        return alertController
+    }
+    
+    // MARK: Private Methods
+
+    private static func alertViewController(title: String, buttonStack: ButtonStackType) -> AlertViewController {
         let bundle = Bundle(for: self)
         let alertController = UIStoryboard(name: "Alert", bundle: bundle).instantiateInitialViewController() as! AlertViewController
         alertController.titleText = title
@@ -139,8 +147,6 @@ open class Presentr: NSObject {
         return alertController
     }
     
-    // MARK: Private Methods
-
     /**
      Private method for presenting a view controller, using the custom presentation. Called from the UIViewController extension.
      
@@ -183,6 +189,26 @@ public extension UIViewController {
                                        animated: animated,
                                        completion: completion)
     }
+    
+    // Presents a modal with the view as content.
+    func presentInModal(viewToPresent: UIView,
+                        title: String,
+                        actions: [AlertAction]?,
+                        buttonStack: ButtonStackType,
+                        animated: Bool,
+                        completion: (() -> Void)?) {
+        
+        let presentr = Presentr(presentationType: .alert)
+        let alert = Presentr.alertViewController(title: title, buttonStack: buttonStack, bodyView: viewToPresent)
+        actions?.forEach({ (action) in
+            alert.addAction(action)
+        })
+        presentr.presentViewController(presentingViewController: self,
+                                       presentedViewController: alert,
+                                       animated: animated,
+                                       completion: completion)
+    }
+    
     // Presents a modal with the message as content.
     func presentInModal(message: String,
                         title: String,
@@ -201,7 +227,6 @@ public extension UIViewController {
                                        animated: animated,
                                        completion: completion)
     }
-
 }
 
 // MARK: - UIViewControllerTransitioningDelegate
@@ -220,7 +245,6 @@ extension Presentr: UIViewControllerTransitioningDelegate{
         return animation()
     }
     
-    // MARK: - Private Helper's
     
     fileprivate func presentationController(_ presented: UIViewController, presenting: UIViewController) -> PresentrController {
         let presentationController = PresentrController(presentedViewController: presented, presenting: presenting)

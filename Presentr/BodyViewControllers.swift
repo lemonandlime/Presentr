@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension InputTextModalBodyViewController: UITextViewDelegate {
+extension TextViewModalBody: UITextViewDelegate {
     
     public func textViewDidChange(_ textView: UITextView) {
         if textView.text.contains(placeholderText) {
@@ -32,17 +32,15 @@ extension InputTextModalBodyViewController: UITextViewDelegate {
     }
 }
 
-public class InputTextModalBodyViewController: UIViewController {
+public class TextViewModalBody: UIViewController {
     
     var placeholderText: String = " "
-    var userInputText: String?
-    var completion: ((String?) -> Void)?
+    public var userInputText: String?
     
-    public static func create(text: String?, placeholder: String, completion: ((String?) -> Void)?) -> InputTextModalBodyViewController {
-        let viewController =  UIStoryboard(name: "Alert", bundle: Bundle(for: self)).instantiateViewController(withIdentifier: "TextViewBody") as! InputTextModalBodyViewController
+    public static func create(text: String?, placeholder: String) -> TextViewModalBody {
+        let viewController =  UIStoryboard(name: "Alert", bundle: Bundle(for: self)).instantiateViewController(withIdentifier: "TextViewBody") as! TextViewModalBody
         viewController.placeholderText = placeholder
         viewController.userInputText = text
-        viewController.completion = completion
         return viewController
     }
     
@@ -58,8 +56,6 @@ public class InputTextModalBodyViewController: UIViewController {
     
     override public func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        textView?.resignFirstResponder()
-        completion?(userInputText)
-        
+        textView?.resignFirstResponder()        
     }
 }
