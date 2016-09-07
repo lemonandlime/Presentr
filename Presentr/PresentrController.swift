@@ -27,7 +27,6 @@ class PresentrController: UIPresentationController, UIAdaptivePresentationContro
     override init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?) {
         super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
         setupChromeView()
-        //addCornerRadiusToPresentedView()
     }
 
     // MARK: Setup
@@ -50,31 +49,10 @@ class PresentrController: UIPresentationController, UIAdaptivePresentationContro
 
 }
 
-// MARK: UIPresentationController
 
 extension PresentrController {
 
     // MARK: Presentation
-    
-//    override var frameOfPresentedViewInContainerView: CGRect {
-//        var presentedViewFrame = CGRect.zero
-//        let containerBounds = containerView!.bounds
-//
-//        let size = self.size(forChildContentContainer: presentedViewController, withParentContainerSize: containerBounds.size)
-//        let center = calculateCenterPoint()
-//        let origin = calculateOrigin(center, size: size)
-//
-//        presentedViewFrame.size = size
-//        presentedViewFrame.origin = origin
-//
-//        return presentedViewFrame
-//    }
-
-//    override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
-//        let width = calculateWidth(parentSize)
-//        let height = calculateHeight(parentSize)
-//        return CGSize(width: CGFloat(width), height: CGFloat(height))
-//    }
 
     override func containerViewWillLayoutSubviews() {
         chromeView.frame = containerView!.bounds

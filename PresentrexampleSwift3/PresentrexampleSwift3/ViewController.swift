@@ -48,15 +48,20 @@ class ViewController: UIViewController {
         presenter.presentationType = .alert
         // For default transitions you do not need to set this, this is to reset it just in case it was already changed by another presentation below.
         presenter.transitionType = .coverVertical
-        customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
+        //self.present(alertController, animated: true, completion: nil)
+        //presentInModal(viewControllerToPresent: <#T##UIViewController#>, animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+        //customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
     }
     
     @IBAction func alertCustom(_ sender: AnyObject) {
         presenter.presentationType = .alert
         presenter.transitionType = .coverVertical
         let fancyVC = storyboard?.instantiateViewController(withIdentifier: "Fancy")
-        alertController.bodyViewController = fancyVC!
-        customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
+        //alertController.bodyViewController = fancyVC!
+        presentInModal(viewControllerToPresent: fancyVC!, title: "Fancy eh?", actions: nil, animated: true, completion: nil)
+        //presentInModal(viewControllerToPresent: fancyVC!, animated: true, completion: nil)
+
+        //customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
     }
     
     @IBAction func popupDefault(_ sender: AnyObject) {

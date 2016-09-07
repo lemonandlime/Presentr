@@ -100,40 +100,6 @@ public enum TransitionType{
 }
 
 
-/**
- Describes the presented presented view controller's center position. It is meant to be non-specific, but we can use the 'calculatePoint' method when we want to calculate the exact point by passing in the 'containerBounds' rect that only the presentation controller should be aware of.
- 
- - Center:       Center of the screen.
- - TopCenter:    Center of the top half of the screen.
- - BottomCenter: Center of the bottom half of the screen.
- */
-public enum ModalCenterPosition {
-    
-    case center
-    case topCenter
-    case bottomCenter
-    
-    /**
-     Calculates the exact position for the presented view controller center.
-     
-     - parameter containerBounds: The container bounds the controller is being presented in.
-     
-     - returns: CGPoint representing the presented view controller's center point.
-     */
-    func calculatePoint(_ containerBounds: CGRect) -> CGPoint{
-        switch self {
-        case .center:
-            return CGPoint(x: containerBounds.width / 2, y: containerBounds.height / 2)
-        case .topCenter:
-            return CGPoint(x: containerBounds.width / 2, y: containerBounds.height * (1 / 4) - 1)
-        case .bottomCenter:
-            return CGPoint(x: containerBounds.width / 2, y: containerBounds.height * (3 / 4))
-        }
-    }
-    
-}
-
-
 /// Main Presentr class. This is the point of entry for using the framework.
 open class Presentr: NSObject {
 
@@ -208,12 +174,42 @@ open class Presentr: NSObject {
 // MARK: - UIViewController extension to provide customPresentViewController(_:viewController:animated:completion:) method
 
 public extension UIViewController {
-    func customPresentViewController(_ presentr: Presentr, viewController: UIViewController, animated: Bool, completion: (() -> Void)?) {
+    
+    // Presents a modal with the viewController as content.
+    func presentInModal(viewControllerToPresent: UIViewController,
+                        title: String,
+                        actions: [AlertAction]?,
+                        animated: Bool,
+                        completion: (() -> Void)?) {
+        
+        let presentr = Presentr(presentationType: .alert)
+        let alert = Presentr.alertViewController(title: title, bodyViewController: viewControllerToPresent)
+        actions?.forEach({ (action) in
+            alert.addAction(action)
+        })
         presentr.presentViewController(presentingViewController: self,
-                                       presentedViewController: viewController,
+                                       presentedViewController: alert,
                                        animated: animated,
                                        completion: completion)
     }
+    // Presents a modal with the message as content.
+    func presentInModal(message: String,
+                        title: String,
+                        actions: [AlertAction]?,
+                        animated: Bool,
+                        completion: (() -> Void)?) {
+        
+        let presentr = Presentr(presentationType: .alert)
+        let alert = Presentr.alertViewController(title: title, body: message)
+        actions?.forEach({ (action) in
+            alert.addAction(action)
+        })
+        presentr.presentViewController(presentingViewController: self,
+                                       presentedViewController: alert,
+                                       animated: animated,
+                                       completion: completion)
+    }
+
 }
 
 // MARK: - UIViewControllerTransitioningDelegate
