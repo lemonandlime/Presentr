@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -92,6 +93,7 @@
                                             <constraint firstItem="Qh8-vj-abl" firstAttribute="top" secondItem="fb2-Gy-IT3" secondAttribute="top" constant="20" id="cdF-H3-f61"/>
                                             <constraint firstAttribute="bottom" secondItem="Qh8-vj-abl" secondAttribute="bottom" constant="20" id="itQ-kz-ZNs"/>
                                             <constraint firstAttribute="trailing" secondItem="Qh8-vj-abl" secondAttribute="trailing" constant="10" id="oF1-VI-dEu"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="wKK-iq-xoF"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -116,9 +118,11 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ps9-Oa-EAv" firstAttribute="centerY" secondItem="Vga-iu-z7S" secondAttribute="centerY" id="7mi-ci-8qW"/>
+                            <constraint firstItem="Ps9-Oa-EAv" firstAttribute="centerY" secondItem="Vga-iu-z7S" secondAttribute="centerY" priority="750" id="7mi-ci-8qW"/>
+                            <constraint firstItem="Ps9-Oa-EAv" firstAttribute="top" relation="greaterThanOrEqual" secondItem="eAc-sx-AUU" secondAttribute="bottom" id="GG1-uH-S5m"/>
                             <constraint firstAttribute="trailing" secondItem="Ps9-Oa-EAv" secondAttribute="trailing" constant="20" id="hgp-iE-2wk"/>
                             <constraint firstItem="Ps9-Oa-EAv" firstAttribute="leading" secondItem="Vga-iu-z7S" secondAttribute="leading" constant="20" id="w3n-1R-wer"/>
+                            <constraint firstItem="Ki8-mH-qZ8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ps9-Oa-EAv" secondAttribute="bottom" id="y95-Ow-6yP"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -126,6 +130,7 @@
                         <outlet property="bodyContentView" destination="fb2-Gy-IT3" id="tgJ-gp-bqq"/>
                         <outlet property="bodyLabel" destination="Qh8-vj-abl" id="8Dt-TA-eY5"/>
                         <outlet property="contentView" destination="Ps9-Oa-EAv" id="mCj-nc-Ozs"/>
+                        <outlet property="contentViewBottomConstraint" destination="y95-Ow-6yP" id="MlE-Yg-jj6"/>
                         <outlet property="firstButton" destination="D6b-5k-Z2E" id="ita-0A-NMe"/>
                         <outlet property="firstButtonWidthConstraint" destination="lDK-7o-jkM" id="Qic-M6-g7c"/>
                         <outlet property="secondButton" destination="RcP-bq-8lO" id="eJE-RA-Rxs"/>
@@ -135,6 +140,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3b-WS-mZ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-610.39999999999998" y="196.55172413793105"/>
+        </scene>
+        <!--Input Text Modal Body View Controller-->
+        <scene sceneID="E5a-E2-fth">
+            <objects>
+                <viewController storyboardIdentifier="TextViewBody" id="qHR-Ap-QgB" customClass="InputTextModalBodyViewController" customModule="Presentr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="P71-sD-Imh"/>
+                        <viewControllerLayoutGuide type="bottom" id="EMa-4t-DbZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UWs-CR-C3x">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cns-U5-tqi">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="Kxv-MF-N82"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" secondItem="Cns-U5-tqi" secondAttribute="height" id="Kq4-OX-NKv"/>
+                            <constraint firstItem="EMa-4t-DbZ" firstAttribute="top" secondItem="Cns-U5-tqi" secondAttribute="bottom" id="MxM-3Z-Vk8"/>
+                            <constraint firstItem="Cns-U5-tqi" firstAttribute="top" secondItem="P71-sD-Imh" secondAttribute="bottom" id="X4E-HA-gjU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cns-U5-tqi" secondAttribute="trailing" constant="10" id="fRY-EF-g3m"/>
+                            <constraint firstItem="Cns-U5-tqi" firstAttribute="leading" secondItem="UWs-CR-C3x" secondAttribute="leadingMargin" constant="10" id="kTp-TS-1l1"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="300"/>
+                    <connections>
+                        <outlet property="textView" destination="Cns-U5-tqi" id="Uzk-e9-Aaf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Miy-oY-eUU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="337" y="204"/>
         </scene>
     </scenes>
 </document>

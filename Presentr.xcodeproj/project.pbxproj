@@ -20,6 +20,7 @@
 		06BE3E4E1CED58EA0052424E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06BE3E4D1CED58EA0052424E /* Montserrat-Regular.ttf */; };
 		0F2375781D7D751C00A2D9AB /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2375771D7D751C00A2D9AB /* GradientView.swift */; };
 		0F23757A1D7D789300A2D9AB /* PresentrConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2375791D7D789300A2D9AB /* PresentrConfiguration.swift */; };
+		0FC093D91D80044600752228 /* BodyViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC093D81D80044600752228 /* BodyViewControllers.swift */; };
 		0FDA9C9C1D7D87B0004ACD8E /* Alert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FDA9C9B1D7D87B0004ACD8E /* Alert.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		0F23756E1D7D6D1B00A2D9AB /* PresentrexampleSwift3.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PresentrexampleSwift3.xcodeproj; path = PresentrexampleSwift3/PresentrexampleSwift3.xcodeproj; sourceTree = "<group>"; };
 		0F2375771D7D751C00A2D9AB /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		0F2375791D7D789300A2D9AB /* PresentrConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentrConfiguration.swift; sourceTree = "<group>"; };
+		0FC093D81D80044600752228 /* BodyViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyViewControllers.swift; sourceTree = "<group>"; };
 		0FDA9C9B1D7D87B0004ACD8E /* Alert.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Alert.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +114,7 @@
 		0680CC311CE3EFA900CBAE4F /* Presentr */ = {
 			isa = PBXGroup;
 			children = (
+				0FC093D61D80042600752228 /* BodyViewControllers */,
 				0680CC321CE3EFA900CBAE4F /* Presentr.h */,
 				0680CC491CE3EFC500CBAE4F /* Presentr.swift */,
 				0680CC4B1CE3EFC500CBAE4F /* PresentrController.swift */,
@@ -158,6 +161,14 @@
 				0F2375731D7D6D1C00A2D9AB /* PresentrexampleSwift3.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		0FC093D61D80042600752228 /* BodyViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0FC093D81D80044600752228 /* BodyViewControllers.swift */,
+			);
+			name = BodyViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +301,7 @@
 			files = (
 				06686C761CE8250200F88216 /* CoverVerticalFromTopAnimation.swift in Sources */,
 				0F23757A1D7D789300A2D9AB /* PresentrConfiguration.swift in Sources */,
+				0FC093D91D80044600752228 /* BodyViewControllers.swift in Sources */,
 				06686C9D1CE947E200F88216 /* CoverHorizontalAnimation.swift in Sources */,
 				0680CC4D1CE3EFC500CBAE4F /* Presentr.swift in Sources */,
 				0680CC541CE3EFFA00CBAE4F /* AlertViewController.swift in Sources */,

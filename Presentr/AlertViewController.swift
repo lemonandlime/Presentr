@@ -76,6 +76,31 @@ public enum AlertActionStyle{
     
 }
 
+extension AlertViewController {
+    
+    func addKeyboardObserver() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillUpdate(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillUpdate(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func removeKeyboardObserver() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        notificationCenter.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardWillUpdate(notification: NSNotification) {
+        let userInfo = notification.userInfo!
+        let keyboardHeight = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
+        contentViewBottomConstraint.constant = keyboardHeight + 20
+        UIView.animate(withDuration: 0.1, animations: { 
+            self.view.setNeedsLayout()
+            self.view.layoutIfNeeded()
+            }, completion: nil)
+    }
+}
+
 /// UIViewController subclass that displays the alert
 open class AlertViewController: UIViewController {
     
@@ -93,6 +118,7 @@ open class AlertViewController: UIViewController {
     
     fileprivate var actions = [AlertAction]()
     
+    @IBOutlet weak var contentViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var bodyContentView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -103,6 +129,7 @@ open class AlertViewController: UIViewController {
     
     override open func viewDidLoad() {
         super.viewDidLoad()
+        addKeyboardObserver()
         
         if actions.isEmpty{
             let okAction = AlertAction(title: "OK", style: .default, handler: nil)
@@ -116,6 +143,11 @@ open class AlertViewController: UIViewController {
         setupLabels()
         setupButtons()
         setupBodyViewController()
+    }
+    
+    override open func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeKeyboardObserver()
     }
     
     override open func didReceiveMemoryWarning() {

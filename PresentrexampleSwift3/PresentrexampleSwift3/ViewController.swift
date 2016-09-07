@@ -11,6 +11,9 @@ import Presentr
 
 class ViewController: UIViewController {
 
+    let placeholderText = "Type your message to the driver here"
+    var userMessage = ""
+    
     var presenter: Presentr = {
         let presenter = Presentr(presentationType: .alert)
         presenter.transitionType = TransitionType.coverHorizontalFromRight
@@ -45,12 +48,7 @@ class ViewController: UIViewController {
     // MARK: - IBAction's
     
     @IBAction func alertDefault(_ sender: AnyObject) {
-        presenter.presentationType = .alert
-        // For default transitions you do not need to set this, this is to reset it just in case it was already changed by another presentation below.
-        presenter.transitionType = .coverVertical
-        //self.present(alertController, animated: true, completion: nil)
-        //presentInModal(viewControllerToPresent: <#T##UIViewController#>, animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
-        //customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
+
     }
     
     @IBAction func alertCustom(_ sender: AnyObject) {
@@ -67,37 +65,42 @@ class ViewController: UIViewController {
     @IBAction func popupDefault(_ sender: AnyObject) {
         presenter.presentationType = .popup
         presenter.transitionType = .coverVertical
-        customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
+        let textViewVC = InputTextModalBodyViewController.create(text: userMessage, placeholder: placeholderText) { (text) in
+            self.userMessage = text ?? ""
+        }
+        presentInModal(viewControllerToPresent: textViewVC, title: "Fancy eh?", actions: nil, animated: true, completion: nil)
+
+//        customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
     }
     
     @IBAction func popupCustom(_ sender: AnyObject) {
         presenter.presentationType = .popup
         presenter.transitionType = .coverHorizontalFromRight
-        customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
+//        customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
     }
     
     @IBAction func topHalfDefault(_ sender: AnyObject) {
         presenter.presentationType = .topHalf
         presenter.transitionType = .coverVertical
-        customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
+//        customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
     }
     
     @IBAction func topHalfCustom(_ sender: AnyObject) {
         presenter.presentationType = .topHalf
         presenter.transitionType = .coverVerticalFromTop
-        customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
+//        customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
     }
     
     @IBAction func bottomHalfDefault(_ sender: AnyObject) {
         presenter.presentationType = .bottomHalf
         presenter.transitionType = .coverVertical
-        customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
+//        customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
     }
     
     @IBAction func bottomHalfCustom(_ sender: AnyObject) {
-        presenter.presentationType = .bottomHalf
-        presenter.transitionType = .coverHorizontalFromLeft
-        customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
+//        presenter.presentationType = .bottomHalf
+//        presenter.transitionType = .coverHorizontalFromLeft
+//        customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
     }
     
 
